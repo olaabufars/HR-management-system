@@ -17,9 +17,9 @@ const employee1 = new Employee(1000,"Ghazi Samer","Administration","Senior");
 const employee2 = new Employee(1001,"Lana Ali","Finance","Senior");
 const employee3 = new Employee(1002,"Tamara Ayoub","Marketing","Senior");
 const employee4 = new Employee(1003,"Safi Walid","Administration","Mid-Senior");
-const employee4 = new Employee(1004,"Omar Zaid","Development","Senior");
-const employee4 = new Employee(1005,"Rana Saleh","Development","Junior");
-const employee4 = new Employee(1006,"Hadi Ahmad","Finance","Mid-Senior");
+const employee5 = new Employee(1004,"Omar Zaid","Development","Senior");
+const employee6 = new Employee(1005,"Rana Saleh","Development","Junior");
+const employee7 = new Employee(1006,"Hadi Ahmad","Finance","Mid-Senior");
 
 
 
@@ -49,4 +49,16 @@ Employee.prototype.render = function(){
 }
 employee1.CalculatSalary();
 employee1.render();
-//employee2.render();
+employee2.CalculatSalary();
+employee2.render();
+employee3.CalculatSalary();
+employee3.render();
+employee4.CalculatSalary();
+employee4.render();
+employee5.CalculatSalary();
+employee5.render();
+employee6.CalculatSalary();
+employee6.render();
+employee7.CalculatSalary();
+employee7.render();
+
