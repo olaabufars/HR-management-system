@@ -62,15 +62,17 @@ employee6.render();
 employee7.CalculatSalary();
 employee7.render();*/
 //////////////////////////////////// task8 ///////////////////////////////////////////////////////////////////
-
-function Employee(EmployeeID,FullName,Department, level){
+/*
+function Employee(FullName,Department, level,img){
     this.EmployeeID = EmployeeID;
     this.FullName = FullName;
     this.Department = Department;
     this.level = level;
-    this.img = `./img/${this.FullName}.PNG`;
+    this.img = img;
     this.cardNum = 0;
 }
+
+;
 
 
 Employee.prototype.GitRandomId = function(min,max){
@@ -82,24 +84,74 @@ function GitRandomNumber(min,max){
 }
 
 let EmployeeForm =document.getElementById("form");
-EmployeeForm.addEventListener('submit', getData);
+EmployeeForm.addEventListener('submit', getData(event));
+ 
+
+
 function getData(event){
     event.preventDefault()
     let name = event.target.fname.value;
     let ImgURL = event.target.IMG.value;
     let Department1 = document.getElementById("Dpartment").value;
     let level1 = document.getElementById("Level").value;
-    
+   // new Employee(,name,ImgURL,Department1,level1);
 }
+let myFormSection = document.getElementById("sectionId");
+let myForm = document.getElementById("form");
+myFormSection.appendChild(myForm);
+
 Employee.prototype.render = function(){
-    document.write(`<h3>${this.img}
-    Name: ${this.FullName}- ID: ${this.EmployeeID}</h3><br><h4>Department: ${this.Department}-level: ${this.level}<br>${this.cardNum}</h4>`)
+    
+    let name = document.getElementById("fname");
+    name.appendChild(myForm);
+    let Department = document.getElementById("Dpartment");
+    Department.appendChild(myForm);
+    let option1 = document.getElementById("Administration");
+    option1.appendChild(Department);
+    let option2 = document.getElementById("Marketing");
+    option2.appendChild(Department);
+    let option3 = document.getElementById("Development");
+    option3.appendChild(Department);
+    let option4 = document.getElementById("Finance");
+    option4.appendChild(Department);
+
+    let level = document.getElementById("Level");
+    level.appendChild(myForm);
+    let option11 = document.getElementById("Junior");
+    option11.appendChild(level);
+    let option22 = document.getElementById("Mid-Senior");
+    option22.appendChild(level);
+    let option33 = document.getElementById("Senior");
+    option33.appendChild(level);
+
+    let img = document.getElementById("IMAGID");
+    img.appendChild(myForm);
+
+
+    
+
+
+
+  
 }
 
 
 Employee.prototype.GetInfo = function(){
     this.FullName = getData();
 }
+*////////////////////////////////////////////Task9///////////////////////////////////////////////////////////////
+
+function Employee(EmployeeID,FullName,Department, level ){
+    this.EmployeeID = EmployeeID;
+    this.FullName = FullName;
+    this.Department = Department;
+    this.level = level;
+    this.Salary = 0;
+    Employee.lis.push(this);
+   
+    
+}
+Employee.lis = [];
 const employee1 = new Employee(1000,"Ghazi Samer","Administration","Senior");
 const employee2 = new Employee(1001,"Lana Ali","Finance","Senior");
 const employee3 = new Employee(1002,"Tamara Ayoub","Marketing","Senior");
@@ -108,11 +160,12 @@ const employee5 = new Employee(1004,"Omar Zaid","Development","Senior");
 const employee6 = new Employee(1005,"Rana Saleh","Development","Junior");
 const employee7 = new Employee(1006,"Hadi Ahmad","Finance","Mid-Senior");
 
-employee1.GitRandomId(1000,1500);
-employee1.render();
-employee2.GitRandomId(1600,2000);
-employee3.GitRandomId(2001,3000);
-employee4.GitRandomId(3001,4000);
-employee5.GitRandomId(4001,5000);
-employee6.GitRandomId(5001,6000);
-employee7.GitRandomId(6001,7000);
+//console.log(Employee.lis);
+
+
+function setData(){
+    let Data = JSON.stringify(Employee.lis);
+    localStorage.setItem('employee',Data);
+}
+
+
